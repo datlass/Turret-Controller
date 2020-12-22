@@ -7,7 +7,6 @@ local EMPTYCFRAME = CFrame.new()
 local TurretController = {}
 TurretController.__index = TurretController
 
-local Maid = require(script.Maid)
 local VectorUtil = require(script.VectorUtil)
 
 --The table
@@ -31,7 +30,7 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 	self.JointMotor6D = JointMotor6D
 	self.JointMotor6DC0Store = JointMotor6D.C0
 	self.TurretInfo = JointMotor6D.Part1:FindFirstChild("TurretAttachment") or JointMotor6D.Part1
-	self.TurretBase = JointMotor6D.Part0:FindFirstChild("BaseAttachment") or JointMotor6D.Part0
+	self.TurretBase = JointMotor6D.Part0:FindFirstChild("BaseAttachment") or JointMotor6D.Part1:FindFirstChild("TurretAttachment")  or JointMotor6D.Part0
 
 	self.Constraints = Constraints
 
@@ -118,28 +117,5 @@ function TurretController:EulerClampXY(x,y)
 	local newX = math.clamp(math.deg(x),-Constraints.DepressionAngle, Constraints.ElevationAngle)
 	return math.rad(newX), math.rad(newY)
 end
-
-function TurretController.initJointAttachmentsFromMotor6D(Motor6DTable)
-	for i = 1, #Motor6DTable - 1, 1 do
-		local jointPosition = (Motor6DTable[i].Part0.CFrame*Motor6DTable[i].C0).p
-		print(jointPosition)
-		local nextJointPosition = (Motor6DTable[i + 1].Part0.CFrame*Motor6DTable[i+1].C0).p
-
-		local jointAttachment = Instance.new("Attachment")
-		local test = CFrame.lookAt(jointPosition,nextJointPosition)
-		local rotOnly = (test - test.Position)
-		jointAttachment.Name = "JointAttachment"
-		jointAttachment.Parent = Motor6DTable[i].Part1
-		jointAttachment.WorldCFrame = CFrame.new(test.Position)*rotOnly
-	end
-end
-
-function TurretController:Destroy()
-
-	self.Maid:Destroy()
-
-end
-
-
 
 return TurretController

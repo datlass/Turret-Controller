@@ -63,27 +63,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-8.03496265</X>
-					<Y>8.06783676</Y>
-					<Z>8.93304729</Z>
-					<R00>0.53746736</R00>
-					<R01>0.396972269</R01>
-					<R02>-0.744004011</R02>
-					<R10>2.98023259e-08</R10>
-					<R11>0.882269323</R11>
-					<R12>0.470745265</R12>
-					<R20>0.843284667</R20>
-					<R21>-0.253010243</R21>
-					<R22>0.474190891</R22>
+					<X>-3.56301427</X>
+					<Y>9.99761391</Y>
+					<Z>-6.88143826</Z>
+					<R00>-0.997364581</R00>
+					<R01>-0.032221742</R01>
+					<R02>0.0650050715</R02>
+					<R10>-0</R10>
+					<R11>0.895969927</R11>
+					<R12>0.444114745</R12>
+					<R20>-0.0725527406</R20>
+					<R21>0.442944318</R21>
+					<R22>-0.893608689</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-6.54695511</X>
-					<Y>7.12634659</Y>
-					<Z>7.98466587</Z>
+					<X>-3.6930244</X>
+					<Y>9.10938454</Y>
+					<Z>-5.09422112</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -2155,7 +2155,6 @@ local EMPTYCFRAME = CFrame.new()
 local TurretController = {}
 TurretController.__index = TurretController
 
-local Maid = require(script.Maid)
 local VectorUtil = require(script.VectorUtil)
 
 --The table
@@ -2282,186 +2281,11 @@ function TurretController.initJointAttachmentsFromMotor6D(Motor6DTable)
 	end
 end
 
-function TurretController:Destroy()
-
-	self.Maid:Destroy()
-
-end
-
-
 
 return TurretController]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="ModuleScript" referent="RBX4222a7f1c3a448b985e8a885c34b572b">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Maid</string>
-						<string name="ScriptGuid">{9df9c03e-8dc5-4900-9468-396037be7934}</string>
-						<ProtectedString name="Source"><![CDATA[-- Maid
--- Author: Quenty
--- Source: https://github.com/Quenty/NevermoreEngine/blob/version2/Modules/Shared/Events/Maid.lua
--- License: MIT (https://github.com/Quenty/NevermoreEngine/blob/version2/LICENSE.md)
--- This module has been modified for use in AeroGameFramework
-
---[[
-
-	maid = Maid.new()
-
-	maid:GiveTask(task)
-		> task is an event connection, function, or instance/table with a 'Destroy' method
-
-	maid:GivePromise(promise)
-	
-	maid:DoCleaning()
-		> Alias for Destroy
-	
-	maid:Destroy()
-		> Goes through each task & disconnects events, destroys instances, and calls functions
-
---]]
-
----	Manages the cleaning of events and other things.
--- Useful for encapsulating state and make deconstructors easy
--- @classmod Maid
--- @see Signal
-
-local Maid = {}
-Maid.ClassName = "Maid"
-
-local Promise
-
-
---- Returns a new Maid object
--- @constructor Maid.new()
--- @treturn Maid
-function Maid.new()
-	local self = setmetatable({
-		_tasks = {};
-	}, Maid)
-	return self
-end
-
-
---- Returns Maid[key] if not part of Maid metatable
--- @return Maid[key] value
-function Maid:__index(index)
-	if (Maid[index]) then
-		return Maid[index]
-	else
-		return self._tasks[index]
-	end
-end
-
-
---- Add a task to clean up
--- @usage
--- Maid[key] = (function)         Adds a task to perform
--- Maid[key] = (event connection) Manages an event connection
--- Maid[key] = (Maid)             Maids can act as an event connection, allowing a Maid to have other maids to clean up.
--- Maid[key] = (Object)           Maids can cleanup objects with a `Destroy` method
--- Maid[key] = nil                Removes a named task. If the task is an event, it is disconnected. If it is an object,
---                                it is destroyed.
-function Maid:__newindex(index, newTask)
-	if (Maid[index] ~= nil) then
-		error(("'%s' is reserved"):format(tostring(index)), 2)
-	end
-
-	local tasks = self._tasks
-	local oldTask = tasks[index]
-	tasks[index] = newTask
-
-	if (oldTask) then
-		if (type(oldTask) == "function") then
-			oldTask()
-		elseif (typeof(oldTask) == "RBXScriptConnection") then
-			oldTask:Disconnect()
-		elseif (oldTask.Destroy) then
-			oldTask:Destroy()
-		end
-	end
-end
-
-
---- Same as indexing, but uses an incremented number as a key.
--- @param task An item to clean
--- @treturn number taskId
-function Maid:GiveTask(task)
-	assert(task, "Task cannot be false or nil")
-
-	local taskId = (#self._tasks + 1)
-	self[taskId] = task
-
-	if (type(task) == "table" and (not task.Destroy)) then
-		warn("[Maid.GiveTask] - Gave table task without .Destroy\n\n" .. debug.traceback())
-	end
-
-	return taskId
-end
-
-
-function Maid:GivePromise(promise)
-	if (promise:GetStatus() ~= Promise.Status.Started) then
-		return promise
-	end
-
-	local newPromise = Promise.Resolve(promise)
-	local id = self:GiveTask(newPromise)
-
-	-- Ensure GC
-	newPromise:Finally(function()
-		self[id] = nil
-	end)
-
-	return newPromise
-end
-
-
---- Cleans up all tasks.
--- @alias Destroy
-function Maid:DoCleaning()
-	local tasks = self._tasks
-
-	-- Disconnect all events first as we know this is safe
-	for index, task in pairs(tasks) do
-		if (typeof(task) == "RBXScriptConnection") then
-			tasks[index] = nil
-			task:Disconnect()
-		end
-	end
-
-	-- Clear out tasks table completely, even if clean up tasks add more tasks to the maid
-	local index, task = next(tasks)
-	while (task ~= nil) do
-		tasks[index] = nil
-		if (type(task) == "function") then
-			task()
-		elseif (typeof(task) == "RBXScriptConnection") then
-			task:Disconnect()
-		elseif (task.Destroy) then
-			task:Destroy()
-		end
-		index, task = next(tasks)
-	end
-end
-
-
-function Maid:Init()
-	Promise = self.Shared.Promise
-end
-
-
---- Alias for DoCleaning()
--- @function Destroy
-Maid.Destroy = Maid.DoCleaning
-
-return Maid]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
 				<Item class="ModuleScript" referent="RBX19bc04f37f5548af906cbb6a8857c4c3">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
