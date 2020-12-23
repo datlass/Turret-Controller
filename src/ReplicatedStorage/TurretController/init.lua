@@ -30,7 +30,7 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 	self.JointMotor6D = JointMotor6D
 	self.JointMotor6DC0Store = JointMotor6D.C0
 	self.TurretInfo = JointMotor6D.Part1:FindFirstChild("TurretAttachment") or JointMotor6D.Part1
-	self.TurretBase = JointMotor6D.Part0:FindFirstChild("BaseAttachment") or JointMotor6D.Part1:FindFirstChild("TurretAttachment")  or JointMotor6D.Part0
+	self.TurretBase = JointMotor6D.Part0:FindFirstChild("BaseAttachment") or JointMotor6D.Part0:FindFirstChild("TurretAttachment")  or JointMotor6D.Part0
 
 	self.Constraints = Constraints
 
@@ -64,7 +64,7 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 
 	local baseCFrame : CFrame
 	if turretBase:IsA("Attachment") then
-		baseCFrame = turretBase.WorldCFrame
+		baseCFrame = turretBase.WorldCFrame-turretBase.WorldCFrame.Position
 	else
 		baseCFrame = turretBase.CFrame-turretBase.CFrame.Position
 	end
@@ -73,7 +73,7 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 	local relativeToWorld = currentJointMotor6D.Part0.CFrame:Inverse()
 	local lookAtWorld = CFrame.lookAt(turretPosition,lookAtPosition,baseCFrame.UpVector)
 
-	local goalCFrame = relativeToWorld*lookAtWorld*turretCFrameRotationOffset
+	local goalCFrame
 
 	if self.Constraints then
 		local turretRelativeCF = baseCFrame:ToObjectSpace(lookAtWorld)
@@ -81,7 +81,11 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 		--print(math.deg(x),math.deg(y),math.deg(z))
 		local constrainedX , constrainedY = self:EulerClampXY(x,y)
 		--print(math.deg(constrainedX),math.deg(constrainedY))
-		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,0)*turretCFrameRotationOffset
+		--print(math.deg(constrainedY))
+		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+	else
+		goalCFrame = relativeToWorld*lookAtWorld*turretCFrameRotationOffset
+
 	end
 
 	--For Lerping
@@ -113,6 +117,7 @@ end
 -- negative z is front, x is rightvector
 function TurretController:EulerClampXY(x,y)
 	local Constraints =  self.Constraints
+	--there is an issue when y is between -179 to 180 degrees
 	local newY = math.clamp(math.deg(y),-Constraints.YawRight,Constraints.YawLeft)
 	local newX = math.clamp(math.deg(x),-Constraints.DepressionAngle, Constraints.ElevationAngle)
 	return math.rad(newX), math.rad(newY)

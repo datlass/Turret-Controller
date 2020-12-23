@@ -15,14 +15,24 @@ end
 local gunHeadConstraints = {
 	["YawLeft"] = 89;
 	["YawRight"] = 89;
-	["ElevationAngle"] = 40;
-	["DepressionAngle"] = 40;
+	["ElevationAngle"] = 0;
+	["DepressionAngle"] = 0;
 }
 
 local GunHead = TurretController.new(ModelMotor6Ds["GunHead"],gunHeadConstraints)
 
+local gunConstraints = {
+	["YawLeft"] = 0;
+	["YawRight"] = 0;
+	["ElevationAngle"] = 45;
+	["DepressionAngle"] = 45;
+}
+
+local Gun = TurretController.new(ModelMotor6Ds["Gun"],gunConstraints)
+
 
 RunService.Heartbeat:Connect(function(step)
     local goalPos = Target.Position
-    GunHead:LookAt(goalPos,step)
+	GunHead:LookAt(goalPos,step)
+	Gun:LookAt(goalPos,step)
 end)
