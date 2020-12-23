@@ -63,27 +63,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-19.0936375</X>
-					<Y>10.7433929</Y>
-					<Z>5.4640193</Z>
-					<R00>0.311648577</R00>
-					<R01>0.302557379</R01>
-					<R02>-0.900740921</R02>
-					<R10>-7.4505806e-09</R10>
-					<R11>0.947951376</R11>
-					<R12>0.318415284</R12>
-					<R20>0.950197458</R20>
-					<R21>-0.0992336646</R21>
-					<R22>0.29542768</R22>
+					<X>-12.0981512</X>
+					<Y>10.4743748</Y>
+					<Z>0.0130963922</Z>
+					<R00>-0.773721874</R00>
+					<R01>0.295185179</R01>
+					<R02>-0.560553551</R02>
+					<R10>1.49011612e-08</R10>
+					<R11>0.88481617</R11>
+					<R12>0.465940475</R12>
+					<R20>0.633525491</R20>
+					<R21>0.360508353</R21>
+					<R22>-0.684601545</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-17.2921562</X>
-					<Y>10.1065626</Y>
-					<Z>4.87316418</Z>
+					<X>-10.9770441</X>
+					<Y>9.54249382</Y>
+					<Z>1.38229942</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -2190,21 +2190,6 @@ local TurretController = {}
 TurretController.__index = TurretController
 
 local VectorUtil = require(script.VectorUtil)
-
-local roundDecimals = function(num, places) --num is your number or value and places is number of decimal places
-    
-    places = math.pow(10, places or 0)
-    num = num * places
-   
-    if num >= 0 then 
-        num = math.floor(num + 0.5) 
-    else 
-        num = math.ceil(num - 0.5) 
-    end
-    
-    return num / places
-    
-end
 
 --The table
 --Units are in degrees
