@@ -1,4 +1,4 @@
-# JointController
+# Turret-Controller
 
 Roblox Motor6D wrapper for CFrame.lookAt.
 
