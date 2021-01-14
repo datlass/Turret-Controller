@@ -73,13 +73,23 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 	local relativeToWorld = currentJointMotor6D.Part0.CFrame:Inverse()
 	local lookAtWorld = CFrame.lookAt(turretPosition,lookAtPosition,baseCFrame.UpVector)
 
+	local jointPosition = currentJointMotor6D.Part0.CFrame *originalC0Position
+	local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)
+
 	local goalCFrame
 
 	if self.Constraints then
+
 		local turretRelativeCF = baseCFrame:ToObjectSpace(lookAtWorld)
 		local x , y , z = turretRelativeCF:ToOrientation()
 		--print(math.deg(x),math.deg(y),math.deg(z))
 		local constrainedX , constrainedY = self:EulerClampXY(x,y)
+
+		--Detect quadrant of lookAt position
+		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
+		local _,y, _ = baseRelative:ToOrientation()
+		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
+
 		--print(math.deg(constrainedX),math.deg(constrainedY))
 		--print(math.deg(constrainedY))
 		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset

@@ -1,5 +1,5 @@
 --[[
-    Testing with dummy with only two motor one yaw constrained the other elevationally constrained
+    Testing with dummy with only one motor but both elevation and yaw constraints
 ]]
 
 local RunService = game:GetService("RunService")
@@ -7,7 +7,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local TurretController = require(ReplicatedStorage:FindFirstChild("TurretController",true))
 
-local model = workspace.Dummy
+local model = workspace.OneMotorDummy
 local Target = workspace.Target
 
 local Motor6DValues = model.Motor6DValues:GetChildren()
@@ -19,24 +19,13 @@ end
 local gunHeadConstraints = {
 	["YawLeft"] = 89;
 	["YawRight"] = 89;
-	["ElevationAngle"] = 0;
-	["DepressionAngle"] = 0;
-}
-
-local GunHead = TurretController.new(ModelMotor6Ds["GunHead"],gunHeadConstraints)
-
-local gunConstraints = {
-	["YawLeft"] = 0;
-	["YawRight"] = 0;
 	["ElevationAngle"] = 45;
 	["DepressionAngle"] = 45;
 }
 
-local Gun = TurretController.new(ModelMotor6Ds["Gun"],gunConstraints)
-
+local GunHead = TurretController.new(ModelMotor6Ds["GunHead"],gunHeadConstraints)
 
 RunService.Heartbeat:Connect(function(step)
     local goalPos = Target.Position
 	GunHead:LookAt(goalPos,step)
-	Gun:LookAt(goalPos,step)
 end)
