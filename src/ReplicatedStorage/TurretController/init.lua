@@ -58,11 +58,11 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 	self:ConstructPIDController() -- creates PIDcontroller with the default settings
 	self.Mass = 1 --makes it slower and feel bulkier
 	self.CurrentAngularVelocityClamp = nil --Clamps the angular velocity, number in radians per second
-	self.Restitution = 0.5 -- Value 0-1 if hits the constraints then reduces angular velocity in the opposite direction
+	self.Restitution = 0.5 -- Value 0-1, 1 means elastic same amount of bounce, 0 means rigid no bounce
 
-	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to add your own angular velocity
+	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to control your own angular velocity
 
-	--Uhh don't edit these used for EulerClamp function to detect which axis has been clamped
+	--Uhh don't edit these variables are used for EulerClamp function to detect which axis has been clamped
 	self.HasBeenClamped = false --detect if lookAt has been clamped or not for PID mode
 	self.YawEdgeClamped = false
 	self.ElevationEdgeClamped = false

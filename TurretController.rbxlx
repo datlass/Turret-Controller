@@ -64,27 +64,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-3.35896111</X>
-					<Y>16.800024</Y>
-					<Z>-18.1361771</Z>
-					<R00>-0.814900756</R00>
-					<R01>0.350700825</R01>
-					<R02>-0.461460382</R02>
+					<X>5.78843307</X>
+					<Y>6.80284452</Y>
+					<Z>1.25932145</Z>
+					<R00>0.842961609</R00>
+					<R01>0.196870342</R01>
+					<R02>-0.500657558</R02>
 					<R10>-0</R10>
-					<R11>0.796169698</R11>
-					<R12>0.605073333</R12>
-					<R20>0.579600513</R20>
-					<R21>0.493074715</R21>
-					<R22>-0.6487993</R22>
+					<R11>0.930635571</R11>
+					<R12>0.365947723</R12>
+					<R20>0.53797394</R20>
+					<R21>-0.308479875</R21>
+					<R22>0.78448981</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-2.43604088</X>
-					<Y>15.5898781</Y>
-					<Z>-16.8385792</Z>
+					<X>6.78974819</X>
+					<Y>6.07094908</Y>
+					<Z>-0.30965817</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -3717,11 +3717,11 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 	self:ConstructPIDController() -- creates PIDcontroller with the default settings
 	self.Mass = 1 --makes it slower and feel bulkier
 	self.CurrentAngularVelocityClamp = nil --Clamps the angular velocity, number in radians per second
-	self.Restitution = 0.5 -- Value 0-1 if hits the constraints then reduces angular velocity in the opposite direction
+	self.Restitution = 0.5 -- Value 0-1, 1 means elastic same amount of bounce, 0 means rigid no bounce
 
-	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to add your own angular velocity
+	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to control your own angular velocity
 
-	--Uhh don't edit these used for EulerClamp function to detect which axis has been clamped
+	--Uhh don't edit these variables are used for EulerClamp function to detect which axis has been clamped
 	self.HasBeenClamped = false --detect if lookAt has been clamped or not for PID mode
 	self.YawEdgeClamped = false
 	self.ElevationEdgeClamped = false
