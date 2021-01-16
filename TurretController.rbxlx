@@ -64,27 +64,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-8.90430641</X>
-					<Y>11.1920834</Y>
-					<Z>-8.84398556</Z>
-					<R00>-0.533720016</R00>
-					<R01>0.337423772</R01>
-					<R02>-0.775427699</R02>
-					<R10>-1.4901163e-08</R10>
-					<R11>0.916948378</R11>
-					<R12>0.39900583</R12>
-					<R20>0.845661283</R20>
-					<R21>0.212957412</R21>
-					<R22>-0.489393651</R22>
+					<X>-3.35896111</X>
+					<Y>16.800024</Y>
+					<Z>-18.1361771</Z>
+					<R00>-0.814900756</R00>
+					<R01>0.350700825</R01>
+					<R02>-0.461460382</R02>
+					<R10>-0</R10>
+					<R11>0.796169698</R11>
+					<R12>0.605073333</R12>
+					<R20>0.579600513</R20>
+					<R21>0.493074715</R21>
+					<R22>-0.6487993</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-7.35345078</X>
-					<Y>10.3940716</Y>
-					<Z>-7.86519814</Z>
+					<X>-2.43604088</X>
+					<Y>15.5898781</Y>
+					<Z>-16.8385792</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -1294,8 +1294,8 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<CoordinateFrame name="CFrame">
-							<X>-1.25</X>
-							<Y>-0.5</Y>
+							<X>-1.05000019</X>
+							<Y>0.300000191</Y>
 							<Z>0</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -1566,16 +1566,16 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<CoordinateFrame name="CFrame">
 							<X>0</X>
-							<Y>0</Y>
-							<Z>0</Z>
+							<Y>0.5</Y>
+							<Z>0.199999809</Z>
 							<R00>1</R00>
-							<R01>0</R01>
-							<R02>0</R02>
+							<R01>5.71162865e-12</R01>
+							<R02>-2.4966322e-19</R02>
 							<R10>0</R10>
 							<R11>-4.37113883e-08</R11>
-							<R12>1</R12>
-							<R20>0</R20>
-							<R21>-1</R21>
+							<R12>-1</R12>
+							<R20>-5.71162865e-12</R20>
+							<R21>1</R21>
 							<R22>-4.37113883e-08</R22>
 						</CoordinateFrame>
 						<string name="Name">TurretAttachment</string>
@@ -1691,84 +1691,6 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-		</Item>
-		<Item class="Part" referent="RBXbde8218952844bc6b67f4d1d47b06802">
-			<Properties>
-				<bool name="Anchored">true</bool>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">0</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>-3.5</X>
-					<Y>5.35007095</Y>
-					<Z>4</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">true</bool>
-				<bool name="CanTouch">true</bool>
-				<bool name="CastShadow">true</bool>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4282023189</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">false</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">256</token>
-				<string name="Name">Target</string>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">0</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<token name="formFactorRaw">1</token>
-				<token name="shape">1</token>
-				<Vector3 name="size">
-					<X>1</X>
-					<Y>1</Y>
-					<Z>1</Z>
-				</Vector3>
-			</Properties>
 		</Item>
 		<Item class="Model" referent="RBX36649ada1d6b414084e097365769fec2">
 			<Properties>
@@ -2975,11 +2897,11 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<CoordinateFrame name="CFrame">
 							<X>-1.26235104</X>
 							<Y>6.97903824</Y>
-							<Z>-481.999878</Z>
+							<Z>-19.2998772</Z>
 							<R00>1</R00>
-							<R01>-5.71162865e-12</R01>
+							<R01>-1.42790718e-11</R01>
 							<R02>0</R02>
-							<R10>-5.71162865e-12</R10>
+							<R10>-1.42790718e-11</R10>
 							<R11>1</R11>
 							<R12>0</R12>
 							<R20>0</R20>
@@ -3034,7 +2956,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<Vector3 name="size">
 							<X>0.25</X>
 							<Y>0.25</Y>
-							<Z>960.75</Z>
+							<Z>35.3499985</Z>
 						</Vector3>
 					</Properties>
 				</Item>
@@ -3044,11 +2966,11 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<CoordinateFrame name="CFrame0">
 							<X>0.125</X>
 							<Y>-0.174968719</Y>
-							<Z>481.125</Z>
+							<Z>18.4250107</Z>
 							<R00>1</R00>
 							<R01>0</R01>
-							<R02>-4.28372138e-12</R02>
-							<R10>-4.28372138e-12</R10>
+							<R02>-1.28511646e-11</R02>
+							<R10>-1.28511646e-11</R10>
 							<R11>0</R11>
 							<R12>1</R12>
 							<R20>0</R20>
@@ -3145,6 +3067,84 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
+		</Item>
+		<Item class="Part" referent="RBX741fdc081afb447c81ae7f2bd9d5ec9c">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-0.750009418</X>
+					<Y>6.4000001</Y>
+					<Z>-6.59999084</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CanTouch">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4280374457</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Target</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1.5</X>
+					<Y>1.5</Y>
+					<Z>1.5</Z>
+				</Vector3>
+			</Properties>
 		</Item>
 	</Item>
 	<Item class="SoundService" referent="6">
@@ -3557,11 +3557,20 @@ local gunConstraints = {
 
 local Gun = TurretController.new(ModelMotor6Ds["Gun"],gunConstraints)
 
-
 RunService.Heartbeat:Connect(function(step)
-    local goalPos = Target.Position
-	GunHead:LookAt(goalPos,step)
-	Gun:LookAt(goalPos,step)
+	-- get rid of initial lag when step is around 8 when it should be small 0.02 seconds because of loading lag
+	-- because it messes with PID integration calculation :(
+	if step > 1 then return end
+
+	local goalPos = Target.Position
+	--normal only move towards direction of the goal
+	--GunHead:LookAt(goalPos,step)
+	--Gun:LookAt(goalPos,step)
+
+	--PID mode, more realistic ;)
+	GunHead:PIDLookAt(goalPos,step)
+	Gun:PIDLookAt(goalPos,step)
+
 end)
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
@@ -3603,8 +3612,15 @@ local gunHeadConstraints = {
 local GunHead = TurretController.new(ModelMotor6Ds["GunHead"],gunHeadConstraints)
 
 RunService.Heartbeat:Connect(function(step)
-    local goalPos = Target.Position
-	GunHead:LookAt(goalPos,step)
+	-- get rid of initial lag when step is around 8 when it should be small 0.02 seconds because of loading lag
+	-- because it messes with PID integration calculation :(
+	if step > 1 then return end
+	local goalPos = Target.Position
+	--normal only move towards direction of the goal
+	--GunHead:LookAt(goalPos,step)
+
+	--PID mode, more realistic ;)
+	GunHead:PIDLookAt(goalPos,step)
 end)
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
@@ -3646,11 +3662,13 @@ end)
 -- December 10, 2020
 
 local EMPTYCFRAME = CFrame.new()
+local ZEROVECTOR = Vector3.new()
 
 local TurretController = {}
 TurretController.__index = TurretController
 
 local VectorUtil = require(script.VectorUtil)
+local PID = require(script.PID)
 
 --The table
 --Units are in degrees
@@ -3676,19 +3694,50 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 	self.TurretBase = JointMotor6D.Part0:FindFirstChild("BaseAttachment") or JointMotor6D.Part0:FindFirstChild("TurretAttachment")  or JointMotor6D.Part0
 
 	self.Constraints = Constraints
+	if Constraints.YawLeft == 0 and Constraints.YawRight ==0 then
+		self.NoYaw = true
+	else
+		self.NoYaw = false
+	end
+
+	if Constraints.ElevationAngle == 0 and Constraints.DepressionAngle ==0 then
+		self.NoPitch = true
+	else
+		self.NoPitch = false
+	end
 
 	self.LerpMotors = true
 	self.ConstantSpeed = true
 
-	--some arbritrary values feel free to change
+	--some arbritrary values feel free to change any time doing run time
 	self.LerpAlpha = 1/4
-	self.AngularSpeed = math.rad(180)
+	self.AngularSpeed = math.rad(180) -- some random value idk
+
+	--PID mode settings
+	self:ConstructPIDController() -- creates PIDcontroller with the default settings
+	self.Mass = 1 --makes it slower and feel bulkier
+	self.CurrentAngularVelocityClamp = nil --Clamps the angular velocity, number in radians per second
+	self.Restitution = 0.5 -- Value 0-1 if hits the constraints then reduces angular velocity in the opposite direction
+
+	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to add your own angular velocity
+
+	--Uhh don't edit these used for EulerClamp function to detect which axis has been clamped
+	self.HasBeenClamped = false --detect if lookAt has been clamped or not for PID mode
+	self.YawEdgeClamped = false
+	self.ElevationEdgeClamped = false
 
 	return self
 end
 
-function TurretController:LookAt(lookAtPosition:Vector3,step)
+function TurretController:ConstructPIDController(maxAngularAcceleration,kP, kD, kI)
+	local accel = maxAngularAcceleration  --clamps output acceleration radians per second, if no input then it's math.huge
+	local kp = kP or 0.5
+	local kd = kD or 0.1
+	local ki = kI or 0.2
+	self.PIDController = PID.newVectorMode(accel,kp,kd,ki)
+end
 
+function TurretController:LookAt(lookAtPosition:Vector3,step)
 	--Constants from self
 	local currentJointMotor6D = self.JointMotor6D
 	local turretBase = self.TurretBase
@@ -3699,7 +3748,7 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 	local turretCFrameRotationOffset
 	if turretInfo:IsA("Attachment") then
 		turretPosition = turretInfo.WorldPosition
-		turretCFrameRotationOffset = turretInfo.CFrame-turretInfo.CFrame.Position
+		turretCFrameRotationOffset = (turretInfo.CFrame-turretInfo.CFrame.Position):Inverse()
 	else--It's a Part
 		turretPosition = turretInfo.Position
 		turretCFrameRotationOffset =  EMPTYCFRAME 
@@ -3712,23 +3761,20 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 		baseCFrame = turretBase.CFrame-turretBase.CFrame.Position
 	end
 
-	
 	local relativeToWorld = currentJointMotor6D.Part0.CFrame:Inverse()
-	local lookAtWorld = CFrame.lookAt(turretPosition,lookAtPosition,baseCFrame.UpVector)
-
-	local jointPosition = currentJointMotor6D.Part0.CFrame *originalC0Position
-	local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)
+	local lookAtWorld = CFrame.lookAt(turretPosition,lookAtPosition,baseCFrame.UpVector)--goal LookAt CFrame
 
 	local goalCFrame
 
 	if self.Constraints then
-
 		local turretRelativeCF = baseCFrame:ToObjectSpace(lookAtWorld)
 		local x , y , z = turretRelativeCF:ToOrientation()
 		--print(math.deg(x),math.deg(y),math.deg(z))
 		local constrainedX , constrainedY = self:EulerClampXY(x,y)
 
 		--Detect quadrant of lookAt position
+		local jointPosition = currentJointMotor6D.Part0.CFrame*originalC0Position
+		local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)	
 		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
 		local _,y, _ = baseRelative:ToOrientation()
 		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
@@ -3738,7 +3784,6 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
 	else
 		goalCFrame = relativeToWorld*lookAtWorld*turretCFrameRotationOffset
-
 	end
 
 	--For Lerping
@@ -3759,10 +3804,130 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 
 		local newRotationCF = currentRotation:lerp(goalRotationCFrame, adjustedLerpAlpha or self.LerpAlpha)
 
-
 		self.JointMotor6D.C0 = CFrame.new(originalC0Position)*newRotationCF
 	else
 		self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goalRotationCFrame
+	end
+end
+
+--[[
+	uses a different rotation method, step is mandatory here as PID needs dt for the D error
+]]
+function TurretController:PIDLookAt(lookAtPosition:Vector3,step)
+	--Constants from self
+	local currentJointMotor6D = self.JointMotor6D
+	local turretBase = self.TurretBase
+	local originalC0Position = self.JointMotor6DC0Store.Position
+	local turretInfo = self.TurretInfo
+
+	local turretPosition
+	local turretCFrameRotationOffset
+	if turretInfo:IsA("Attachment") then
+		turretPosition = turretInfo.WorldPosition
+		turretCFrameRotationOffset = (turretInfo.CFrame-turretInfo.CFrame.Position):Inverse()
+	else--It's a Part
+		turretPosition = turretInfo.Position
+		turretCFrameRotationOffset =  EMPTYCFRAME 
+	end
+
+	local baseCFrame : CFrame
+	if turretBase:IsA("Attachment") then
+		baseCFrame = turretBase.WorldCFrame-turretBase.WorldCFrame.Position
+	else
+		baseCFrame = turretBase.CFrame-turretBase.CFrame.Position
+	end
+
+	local relativeToWorld = currentJointMotor6D.Part0.CFrame:Inverse()
+	local lookAtWorld = CFrame.lookAt(turretPosition,lookAtPosition,baseCFrame.UpVector)--goal LookAt CFrame
+
+	local goalCFrame
+
+	if self.Constraints then
+		local turretRelativeCF = baseCFrame:ToObjectSpace(lookAtWorld)
+		local x , y , z = turretRelativeCF:ToOrientation()
+		--print(math.deg(x),math.deg(y),math.deg(z))
+		local constrainedX , constrainedY = self:EulerClampXY(x,y)
+
+		--Detect quadrant of lookAt position
+		local jointPosition = currentJointMotor6D.Part0.CFrame*originalC0Position
+		local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)	
+		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
+		local _,y, _ = baseRelative:ToOrientation()
+		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
+
+		--print(math.deg(constrainedX),math.deg(constrainedY))
+		--print(math.deg(constrainedY))
+		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+	else
+		goalCFrame = relativeToWorld*lookAtWorld*turretCFrameRotationOffset
+	end
+
+	--For Lerping but with PID
+	local goalRotationCFrame = goalCFrame-goalCFrame.Position
+	local currentRotation = currentJointMotor6D.C0-currentJointMotor6D.C0.Position
+
+	--apply angular velocity rotation
+	local differenceCFrame = currentRotation:ToObjectSpace(goalRotationCFrame)
+	local axis, angle = differenceCFrame:ToAxisAngle()
+	local angularDisplacementDifference = axis*angle
+	local outputAcceleration = self.PIDController:CalculateVector(step,ZEROVECTOR,angularDisplacementDifference)
+	self.CurrentAngularVelocity -= outputAcceleration * step/self.Mass
+
+	local clampMagnitude = self.CurrentAngularVelocityClamp
+	if clampMagnitude then
+		self.CurrentAngularVelocity = VectorUtil.ClampMagnitude(self.CurrentAngularVelocity,clampMagnitude)
+	end
+
+	local applyCurrentAngularVelocity = self.CurrentAngularVelocity
+	local magnitudeCurrentAngularVelocity = applyCurrentAngularVelocity.Magnitude
+	local axisCurrentAngularVelocity = applyCurrentAngularVelocity.Unit
+
+	local cframeCurrentAngularVelocity
+	-- if there is a rotation or else it's a .Unit Nil error
+	if axisCurrentAngularVelocity == axisCurrentAngularVelocity then 
+		cframeCurrentAngularVelocity = CFrame.fromAxisAngle(axisCurrentAngularVelocity,magnitudeCurrentAngularVelocity)
+	else
+		cframeCurrentAngularVelocity = CFrame.new()
+	end
+
+	self.JointMotor6D.C0 *= cframeCurrentAngularVelocity
+
+	--check if the angular velocity goes over the boundries/hits the dead end
+	local currentTurretCFrame : CFrame
+	if turretInfo:IsA("Attachment") then
+		currentTurretCFrame = turretInfo.WorldCFrame
+	else--It's a Part
+		currentTurretCFrame =  self.JointMotor6D.Part1.CFrame 
+	end
+	--check constraints again
+	if self.Constraints then
+		local turretRelativeCF = baseCFrame:ToObjectSpace(currentTurretCFrame)
+		local x , y , z = turretRelativeCF:ToOrientation()
+		local constrainedX , constrainedY = self:EulerClampXY(x,y)
+		--Detect quadrant of lookAt position
+		local jointPosition = currentJointMotor6D.Part0.CFrame*originalC0Position
+		local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)	
+		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
+		local _,y, _ = baseRelative:ToOrientation()
+		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
+		if self.HasBeenClamped then -- hit the edges
+			if self.Restitution then
+				--print(self.NoYaw, self.ElevationEdgeClamped)
+				if self.NoYaw and self.ElevationEdgeClamped then -- only elevation up and down
+					--print("bounce") -- test out if it bounces or not :P
+					self.CurrentAngularVelocity *= -self.Restitution
+				end
+				if self.NoPitch and self.YawEdgeClamped then -- only elevation up and down/ pitch rotation
+					self.CurrentAngularVelocity *= -self.Restitution
+				end
+				if not self.NoPitch and not self.NoYaw then -- Doesn't match the no yaw and no pitch criteria
+					self.CurrentAngularVelocity *= -self.Restitution
+				end
+			end
+			local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+			local goal = newgoalCFrame - newgoalCFrame.Position
+			self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
+		end
 	end
 
 end
@@ -3771,8 +3936,28 @@ end
 function TurretController:EulerClampXY(x,y)
 	local Constraints =  self.Constraints
 	--there is an issue when y is between -179 to 180 degrees
-	local newY = math.clamp(math.deg(y),-Constraints.YawRight,Constraints.YawLeft)
-	local newX = math.clamp(math.deg(x),-Constraints.DepressionAngle, Constraints.ElevationAngle)
+	local degY = math.deg(y)
+	local degX = math.deg(x)
+	local newY = math.clamp(degY,-Constraints.YawRight,Constraints.YawLeft)
+	local newX = math.clamp(degX,-Constraints.DepressionAngle, Constraints.ElevationAngle)
+
+	local hasBeenClamped = false
+	local yawEdgeClamped = false
+	local elevationEdgeClamped = false
+
+	if degY < -Constraints.YawRight or degY > Constraints.YawLeft then
+		hasBeenClamped = true
+		yawEdgeClamped = true
+	end
+	if degX < -Constraints.DepressionAngle or degX > Constraints.ElevationAngle then
+		hasBeenClamped = true
+		elevationEdgeClamped = true
+	end
+
+	self.YawEdgeClamped = yawEdgeClamped
+	self.ElevationEdgeClamped = elevationEdgeClamped
+	self.HasBeenClamped = hasBeenClamped
+
 	return math.rad(newX), math.rad(newY)
 end
 
@@ -3899,27 +4084,45 @@ return VectorUtil]]></ProtectedString>
 
 --]]
 
+local VectorUtil = require(script.Parent.VectorUtil)
 
 local PID = {}
 PID.__index = PID
 
-
 function PID.new(min, max, kp, kd, ki)
 	local self = setmetatable({}, PID)
-	self._min = min
-	self._max = max
+	self._min = min or -math.huge
+	self._max = max or math.huge
 	self._kp = kp
 	self._kd = kd
 	self._ki = ki
 	self._preError = 0
 	self._integral = 0
+	self.VectorMode = false
+	return self
+end
+
+function PID.newVectorMode(maxMagnitude, kp, kd, ki)
+	local self = setmetatable({}, PID)
+	self._max = maxMagnitude or math.huge -- doesn't need min only clamps magnitude
+	self._kp = kp
+	self._kd = kd
+	self._ki = ki
+	self._preError = Vector3.new()
+	self._integral = Vector3.new()
+	self.VectorMode = true -- uses Vector3 values for integral so it doesn't error
 	return self
 end
 
 
 function PID:Reset()
-	self._preError = 0
-	self._integral = 0
+	if not self.VectorMode then
+		self._preError = 0
+		self._integral = 0
+	else
+		self._preError = Vector3.new()
+		self._integral = Vector3.new()
+	end
 end
 
 
@@ -3934,6 +4137,20 @@ function PID:Calculate(dt, setpoint, pv)
 	self._preError = err
 	return output
 end
+
+function PID:CalculateVector(dt, setpoint, pv)
+	local err = (setpoint - pv)
+	local pOut = (self._kp * err)
+	self._integral += (err * dt)
+	local iOut = (self._ki * self._integral)
+	local deriv = ((err - self._preError) / dt)
+	local dOut = (self._kd * deriv)
+	local outputPreClamp = pOut + iOut + dOut
+	local output = VectorUtil.ClampMagnitude(outputPreClamp,self._max)
+	self._preError = err
+	return output
+end
+
 
 
 function PID:SetMinMax(min, max)

@@ -26,6 +26,13 @@ local gunHeadConstraints = {
 local GunHead = TurretController.new(ModelMotor6Ds["GunHead"],gunHeadConstraints)
 
 RunService.Heartbeat:Connect(function(step)
-    local goalPos = Target.Position
-	GunHead:LookAt(goalPos,step)
+	-- get rid of initial lag when step is around 8 when it should be small 0.02 seconds because of loading lag
+	-- because it messes with PID integration calculation :(
+	if step > 1 then return end
+	local goalPos = Target.Position
+	--normal only move towards direction of the goal
+	--GunHead:LookAt(goalPos,step)
+
+	--PID mode, more realistic ;)
+	GunHead:PIDLookAt(goalPos,step)
 end)
