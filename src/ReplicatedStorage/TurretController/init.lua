@@ -5,6 +5,8 @@
 local EMPTYCFRAME = CFrame.new()
 local ZEROVECTOR = Vector3.new()
 
+local RunService = game:GetService("RunService")
+
 local TurretController = {}
 TurretController.__index = TurretController
 
@@ -52,12 +54,13 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 
 	--some arbritrary values feel free to change any time doing run time
 	self.LerpAlpha = 1/4
-	self.AngularSpeed = math.rad(180) -- some random value idk
+	self.AngularSpeed = math.rad(90) -- some random value idk
 
 	--PID mode settings
-	self:ConstructPIDController() -- creates PIDcontroller with the default settings
+	self.UsePIDLookAt = false
+	self:ConstructPIDController(math.rad(180),nil,nil,nil) -- creates PIDcontroller with the default settings
 	self.Mass = 1 --makes it slower and feel bulkier
-	self.CurrentAngularVelocityClamp = nil --Clamps the angular velocity, number in radians per second
+	self.CurrentAngularVelocityClamp = math.rad(45) --Clamps the angular velocity, number in radians per second
 	self.Restitution = 0.5 -- Value 0-1, 1 means elastic same amount of bounce, 0 means rigid no bounce
 
 	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to control your own angular velocity
@@ -79,6 +82,11 @@ function TurretController:ConstructPIDController(maxAngularAcceleration,kP, kD, 
 end
 
 function TurretController:LookAt(lookAtPosition:Vector3,step)
+	self.CurrentLookAtPosition = lookAtPosition
+	if self.UsePIDLookAt then
+		self:PIDLookAt(lookAtPosition, step)
+		return
+	end
 	--Constants from self
 	local currentJointMotor6D = self.JointMotor6D
 	local turretBase = self.TurretBase
@@ -119,7 +127,6 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
 		local _,y, _ = baseRelative:ToOrientation()
 		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
-
 		--print(math.deg(constrainedX),math.deg(constrainedY))
 		--print(math.deg(constrainedY))
 		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
@@ -131,6 +138,8 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 	local goalRotationCFrame = goalCFrame-goalCFrame.Position
 	local currentRotation = currentJointMotor6D.C0-currentJointMotor6D.C0.Position
 
+	self.CurrentRotationLookAt = currentRotation
+	self.GoalRotationLookAt = goalRotationCFrame
 	--if the bool is true then use lerp
 	if self.LerpMotors then
 		
@@ -240,39 +249,105 @@ function TurretController:PIDLookAt(lookAtPosition:Vector3,step)
 	else--It's a Part
 		currentTurretCFrame =  self.JointMotor6D.Part1.CFrame 
 	end
+
 	--check constraints again
 	if self.Constraints then
 		local turretRelativeCF = baseCFrame:ToObjectSpace(currentTurretCFrame)
 		local x , y , z = turretRelativeCF:ToOrientation()
 		local constrainedX , constrainedY = self:EulerClampXY(x,y)
 		--Detect quadrant of lookAt position
-		local jointPosition = currentJointMotor6D.Part0.CFrame*originalC0Position
-		local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)	
-		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
-		local _,y, _ = baseRelative:ToOrientation()
-		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
+		--Don't do it for Checking constraints or else quadrant will just flip unexpectedly????
+		
 		if self.HasBeenClamped then -- hit the edges
+			--print("Yeah")
 			if self.Restitution then
 				--print(self.NoYaw, self.ElevationEdgeClamped)
 				if self.NoYaw and self.ElevationEdgeClamped then -- only elevation up and down
 					--print("bounce") -- test out if it bounces or not :P
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 				if self.NoPitch and self.YawEdgeClamped then -- only elevation up and down/ pitch rotation
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 				if not self.NoPitch and not self.NoYaw then -- Doesn't match the no yaw and no pitch criteria
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 			end
-			local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
-			local goal = newgoalCFrame - newgoalCFrame.Position
-			self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 		end
 	end
 
 end
 
+function TurretController:LookAtForSecondsThenDisable(finalLookAtPosition:Vector3, timeLength, replicationFunction)
+	local totalTime = 0
+	local totalDesiredRunTime = timeLength or 5
+	local lookAtPosition = finalLookAtPosition or self.CurrentLookAtPosition
+
+	local replicationTime = 0
+	local replicationInterval = 0.2
+
+
+	self.LookAtConnection = RunService.Heartbeat:Connect(function(step)
+		totalTime += step
+		if totalTime > totalDesiredRunTime then
+			if self.LookAtConnection then
+				self.LookAtConnection:Disconnect()
+				self:DisableLocalControl()
+			end
+		end
+		replicationTime += step
+		if replicationTime > replicationInterval then
+			replicationTime = 0
+			replicationFunction()
+		end
+		self:LookAt(lookAtPosition,step)
+	end)
+end
+
+function TurretController:EnableLocalControl()
+	if self.LookAtConnection then
+		self.LookAtConnection:Disconnect()
+	end
+
+	if not self.LocalControl then
+		self.ServerJointMotor6D = self.JointMotor6D
+		local originalTurretMotor = self.JointMotor6D
+		originalTurretMotor.Enabled = false
+		local turretMotorClone = self.JointMotor6D:Clone()
+		turretMotorClone.Enabled = true
+		turretMotorClone.Parent = originalTurretMotor.Parent
+		self.JointMotor6D = turretMotorClone
+		self.LocalControl = true
+	else
+		--warn("Local control already enabled")
+	end
+end
+
+function TurretController:DisableLocalControl()
+	if 	self.LocalControl then
+		self.JointMotor6D:Destroy()
+		self.ServerJointMotor6D.Enabled = true
+		self.JointMotor6D = self.ServerJointMotor6D
+		self.LocalControl = false
+	else
+		warn("Local control already disabled")
+	end
+end
+
+function TurretController:GetLocalC0Orientation()
+	if self.ServerJointMotor6D and self.LocalControl then
+		return self.ServerJointMotor6D, self.JointMotor6D.C0:ToOrientation()
+	end
+end
 -- negative z is front, x is rightvector
 function TurretController:EulerClampXY(x,y)
 	local Constraints =  self.Constraints

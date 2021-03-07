@@ -5,7 +5,7 @@
 		<Properties>
 			<bool name="AllowThirdPartySales">false</bool>
 			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="CollisionGroups">Default^0^1</string>
+			<string name="CollisionGroups">Default^0^1\Plugin_StudioTweaks_BoundingBox^1^2</string>
 			<Ref name="CurrentCamera">RBX4b0c98a6c66e4323860fe0b1006ba4ba</Ref>
 			<double name="DistributedGameTime">0</double>
 			<bool name="ExplicitAutoJoints">true</bool>
@@ -14,7 +14,7 @@
 			<float name="Gravity">196.199997</float>
 			<token name="InterpolationThrottling">0</token>
 			<token name="LevelOfDetail">0</token>
-			<token name="MeshPartHeads">0</token>
+			<token name="MeshPartHeadsAndAccessories">0</token>
 			<CoordinateFrame name="ModelInPrimary">
 				<X>0</X>
 				<Y>0</Y>
@@ -50,6 +50,7 @@
 				<Z>0</Z>
 			</Vector3>
 			<string name="Name">Workspace</string>
+			<token name="PhysicsSteppingMethod">0</token>
 			<Ref name="PrimaryPart">null</Ref>
 			<int64 name="SourceAssetId">-1</int64>
 			<bool name="StreamingEnabled">false</bool>
@@ -64,27 +65,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>5.78843307</X>
-					<Y>6.80284452</Y>
-					<Z>1.25932145</Z>
-					<R00>0.842961609</R00>
-					<R01>0.196870342</R01>
-					<R02>-0.500657558</R02>
+					<X>-6.19462204</X>
+					<Y>20.2102013</Y>
+					<Z>3.10224366</Z>
+					<R00>0.791452289</R00>
+					<R01>0.480217308</R01>
+					<R02>-0.37814641</R02>
 					<R10>-0</R10>
-					<R11>0.930635571</R11>
-					<R12>0.365947723</R12>
-					<R20>0.53797394</R20>
-					<R21>-0.308479875</R21>
-					<R22>0.78448981</R22>
+					<R11>0.618663669</R11>
+					<R12>0.785655975</R12>
+					<R20>0.611231029</R20>
+					<R21>-0.621809244</R21>
+					<R22>0.489642739</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>6.78974819</X>
-					<Y>6.07094908</Y>
-					<Z>-0.30965817</Z>
+					<X>-5.43832922</X>
+					<Y>18.6388893</Y>
+					<Z>2.12295818</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -182,6 +183,7 @@
 		</Item>
 		<Item class="Terrain" referent="RBXddb55dd2aac841b48bdbd4afea2c16fd">
 			<Properties>
+				<token name="AcquisitionMethod">0</token>
 				<bool name="Anchored">true</bool>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<float name="BackParamA">-0.5</float>
@@ -1500,9 +1502,9 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 							<Y>5.97903824</Y>
 							<Z>-480.699921</Z>
 							<R00>1</R00>
-							<R01>-5.71162865e-12</R01>
+							<R01>-8.56744276e-12</R01>
 							<R02>0</R02>
-							<R10>-5.71162865e-12</R10>
+							<R10>-8.56744276e-12</R10>
 							<R11>1</R11>
 							<R12>0</R12>
 							<R20>0</R20>
@@ -1593,8 +1595,8 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 							<Z>481.125</Z>
 							<R00>1</R00>
 							<R01>0</R01>
-							<R02>-4.28372138e-12</R02>
-							<R10>-4.28372138e-12</R10>
+							<R02>-7.13953592e-12</R02>
+							<R10>-7.13953592e-12</R10>
 							<R11>0</R11>
 							<R12>1</R12>
 							<R20>0</R20>
@@ -1606,7 +1608,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<Ref name="Part0Internal">RBXb677fce098b241a49abd50f76297e4b0</Ref>
 						<Ref name="Part1Internal">RBXafdef202b9a54a4e975df744027a8f9f</Ref>
 						<int64 name="SourceAssetId">-1</int64>
-						<int name="State">1</int>
+						<int name="State">3</int>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
@@ -2899,9 +2901,9 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 							<Y>6.97903824</Y>
 							<Z>-19.2998772</Z>
 							<R00>1</R00>
-							<R01>-1.42790718e-11</R01>
+							<R01>-1.71348855e-11</R01>
 							<R02>0</R02>
-							<R10>-1.42790718e-11</R10>
+							<R10>-1.71348855e-11</R10>
 							<R11>1</R11>
 							<R12>0</R12>
 							<R20>0</R20>
@@ -2969,8 +2971,8 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 							<Z>18.4250107</Z>
 							<R00>1</R00>
 							<R01>0</R01>
-							<R02>-1.28511646e-11</R02>
-							<R10>-1.28511646e-11</R10>
+							<R02>-1.57069791e-11</R02>
+							<R10>-1.57069791e-11</R10>
 							<R11>0</R11>
 							<R12>1</R12>
 							<R20>0</R20>
@@ -2982,7 +2984,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<Ref name="Part0Internal">RBX5412031effa44a859cff57a527b56af5</Ref>
 						<Ref name="Part1Internal">RBXe9677a419a2e4244bb26fbc7d80108cb</Ref>
 						<int64 name="SourceAssetId">-1</int64>
-						<int name="State">1</int>
+						<int name="State">3</int>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
@@ -3386,6 +3388,15 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
+		<Item class="StringValue" referent="RBX71EC9A520F5944C787BC68655C1989A6">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">InsertionHash</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<string name="Value">{68E643C7-77E1-466D-A3B6-F44164F0F6CD}</string>
+			</Properties>
+		</Item>
 	</Item>
 	<Item class="GamePassService" referent="RBX3d8d97b15bf54bee9a540f1b7dff9443">
 		<Properties>
@@ -3517,7 +3528,7 @@ return nothing]]></ProtectedString>
 			<Item class="Script" referent="RBX9813c50ee65b4cda8bb7fad02aa30bde">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
-					<bool name="Disabled">true</bool>
+					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
 					<string name="Name">Test</string>
 					<string name="ScriptGuid">{662d542a-a4de-4e60-9901-6acfd95d967a}</string>
@@ -3664,6 +3675,8 @@ end)
 local EMPTYCFRAME = CFrame.new()
 local ZEROVECTOR = Vector3.new()
 
+local RunService = game:GetService("RunService")
+
 local TurretController = {}
 TurretController.__index = TurretController
 
@@ -3711,12 +3724,13 @@ function TurretController.new(JointMotor6D : Motor6D, Constraints)
 
 	--some arbritrary values feel free to change any time doing run time
 	self.LerpAlpha = 1/4
-	self.AngularSpeed = math.rad(180) -- some random value idk
+	self.AngularSpeed = math.rad(90) -- some random value idk
 
 	--PID mode settings
-	self:ConstructPIDController() -- creates PIDcontroller with the default settings
+	self.UsePIDLookAt = false
+	self:ConstructPIDController(math.rad(180),nil,nil,nil) -- creates PIDcontroller with the default settings
 	self.Mass = 1 --makes it slower and feel bulkier
-	self.CurrentAngularVelocityClamp = nil --Clamps the angular velocity, number in radians per second
+	self.CurrentAngularVelocityClamp = math.rad(45) --Clamps the angular velocity, number in radians per second
 	self.Restitution = 0.5 -- Value 0-1, 1 means elastic same amount of bounce, 0 means rigid no bounce
 
 	self.CurrentAngularVelocity = Vector3.new() -- Don't edit unless you want to control your own angular velocity
@@ -3738,6 +3752,11 @@ function TurretController:ConstructPIDController(maxAngularAcceleration,kP, kD, 
 end
 
 function TurretController:LookAt(lookAtPosition:Vector3,step)
+	self.CurrentLookAtPosition = lookAtPosition
+	if self.UsePIDLookAt then
+		self:PIDLookAt(lookAtPosition, step)
+		return
+	end
 	--Constants from self
 	local currentJointMotor6D = self.JointMotor6D
 	local turretBase = self.TurretBase
@@ -3778,7 +3797,6 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
 		local _,y, _ = baseRelative:ToOrientation()
 		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
-
 		--print(math.deg(constrainedX),math.deg(constrainedY))
 		--print(math.deg(constrainedY))
 		goalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
@@ -3790,6 +3808,8 @@ function TurretController:LookAt(lookAtPosition:Vector3,step)
 	local goalRotationCFrame = goalCFrame-goalCFrame.Position
 	local currentRotation = currentJointMotor6D.C0-currentJointMotor6D.C0.Position
 
+	self.CurrentRotationLookAt = currentRotation
+	self.GoalRotationLookAt = goalRotationCFrame
 	--if the bool is true then use lerp
 	if self.LerpMotors then
 		
@@ -3899,39 +3919,105 @@ function TurretController:PIDLookAt(lookAtPosition:Vector3,step)
 	else--It's a Part
 		currentTurretCFrame =  self.JointMotor6D.Part1.CFrame 
 	end
+
 	--check constraints again
 	if self.Constraints then
 		local turretRelativeCF = baseCFrame:ToObjectSpace(currentTurretCFrame)
 		local x , y , z = turretRelativeCF:ToOrientation()
 		local constrainedX , constrainedY = self:EulerClampXY(x,y)
 		--Detect quadrant of lookAt position
-		local jointPosition = currentJointMotor6D.Part0.CFrame*originalC0Position
-		local quadrantLookAtFromJointPosition = CFrame.lookAt(jointPosition,lookAtPosition,baseCFrame.UpVector)	
-		local baseRelative = baseCFrame:ToObjectSpace(quadrantLookAtFromJointPosition)
-		local _,y, _ = baseRelative:ToOrientation()
-		constrainedY = math.abs(constrainedY)*math.sign(y)--use the quadrants of the lookAtFromJoint
+		--Don't do it for Checking constraints or else quadrant will just flip unexpectedly????
+		
 		if self.HasBeenClamped then -- hit the edges
+			--print("Yeah")
 			if self.Restitution then
 				--print(self.NoYaw, self.ElevationEdgeClamped)
 				if self.NoYaw and self.ElevationEdgeClamped then -- only elevation up and down
 					--print("bounce") -- test out if it bounces or not :P
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 				if self.NoPitch and self.YawEdgeClamped then -- only elevation up and down/ pitch rotation
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 				if not self.NoPitch and not self.NoYaw then -- Doesn't match the no yaw and no pitch criteria
 					self.CurrentAngularVelocity *= -self.Restitution
+					local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
+					local goal = newgoalCFrame - newgoalCFrame.Position
+					self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 				end
 			end
-			local newgoalCFrame = relativeToWorld*baseCFrame*CFrame.fromOrientation(constrainedX,constrainedY,z)*turretCFrameRotationOffset
-			local goal = newgoalCFrame - newgoalCFrame.Position
-			self.JointMotor6D.C0 = CFrame.new(originalC0Position)*goal -- restrain it within goal
 		end
 	end
 
 end
 
+function TurretController:LookAtForSecondsThenDisable(finalLookAtPosition:Vector3, timeLength, replicationFunction)
+	local totalTime = 0
+	local totalDesiredRunTime = timeLength or 5
+	local lookAtPosition = finalLookAtPosition or self.CurrentLookAtPosition
+
+	local replicationTime = 0
+	local replicationInterval = 0.2
+
+
+	self.LookAtConnection = RunService.Heartbeat:Connect(function(step)
+		totalTime += step
+		if totalTime > totalDesiredRunTime then
+			if self.LookAtConnection then
+				self.LookAtConnection:Disconnect()
+				self:DisableLocalControl()
+			end
+		end
+		replicationTime += step
+		if replicationTime > replicationInterval then
+			replicationTime = 0
+			replicationFunction()
+		end
+		self:LookAt(lookAtPosition,step)
+	end)
+end
+
+function TurretController:EnableLocalControl()
+	if self.LookAtConnection then
+		self.LookAtConnection:Disconnect()
+	end
+
+	if not self.LocalControl then
+		self.ServerJointMotor6D = self.JointMotor6D
+		local originalTurretMotor = self.JointMotor6D
+		originalTurretMotor.Enabled = false
+		local turretMotorClone = self.JointMotor6D:Clone()
+		turretMotorClone.Enabled = true
+		turretMotorClone.Parent = originalTurretMotor.Parent
+		self.JointMotor6D = turretMotorClone
+		self.LocalControl = true
+	else
+		--warn("Local control already enabled")
+	end
+end
+
+function TurretController:DisableLocalControl()
+	if 	self.LocalControl then
+		self.JointMotor6D:Destroy()
+		self.ServerJointMotor6D.Enabled = true
+		self.JointMotor6D = self.ServerJointMotor6D
+		self.LocalControl = false
+	else
+		warn("Local control already disabled")
+	end
+end
+
+function TurretController:GetLocalC0Orientation()
+	if self.ServerJointMotor6D and self.LocalControl then
+		return self.ServerJointMotor6D, self.JointMotor6D.C0:ToOrientation()
+	end
+end
 -- negative z is front, x is rightvector
 function TurretController:EulerClampXY(x,y)
 	local Constraints =  self.Constraints
